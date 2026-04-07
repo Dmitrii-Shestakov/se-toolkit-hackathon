@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outfit</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <h1 data-i18n="appTitle">Outfit</h1>
+      <button type="button" id="lang-toggle" class="lang-toggle secondary">EN</button>
+    </header>
+
+    <div id="status-box" class="status-box"></div>
+
+    <main class="grid">
+      <section class="card">
+        <div class="section-head compact-head">
+          <h2 data-i18n="addItem">Добавить вещь</h2>
+        </div>
+        <form id="wardrobe-form" class="stack">
+          <label>
+            <span data-i18n="name">Название</span>
+            <input type="text" id="item-name" placeholder="Белая футболка" required />
+          </label>
+          <button type="submit" data-i18n="add">Добавить</button>
+        </form>
+        <p id="form-message" class="message"></p>
+      </section>
+
+      <section class="card">
+        <div class="section-head compact-head">
+          <h2 data-i18n="generate">Подобрать</h2>
+        </div>
+        <form id="outfit-form" class="stack">
+          <label>
+            <span data-i18n="city">Город</span>
+            <input type="text" id="city" placeholder="Innopolis" />
+          </label>
+          <div class="row">
+            <label class="grow">
+              <span data-i18n="style">Стиль</span>
+              <select id="style">
+                <option value="casual" data-i18n="styleCasual">Повседневный</option>
+                <option value="sporty" data-i18n="styleSporty">Спортивный</option>
+                <option value="minimal" data-i18n="styleMinimal">Минималистичный</option>
+              </select>
+            </label>
+            <label class="checkbox-row">
+              <input type="checkbox" id="multiple" />
+              <span data-i18n="threeOptions">3 варианта</span>
+            </label>
+          </div>
+          <div class="row buttons-row">
+            <button type="button" id="use-location" class="secondary" data-i18n="useLocation">Моё местоположение</button>
+            <button type="submit" data-i18n="getOutfit">Получить образ</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card span-2">
+        <div class="section-head">
+          <h2 data-i18n="wardrobe">Гардероб</h2>
+          <button type="button" id="refresh-wardrobe" class="secondary" data-i18n="refresh">Обновить</button>
+        </div>
+        <div id="wardrobe-list" class="wardrobe-list empty-state"></div>
+      </section>
+
+      <section class="card span-2">
+        <div class="section-head">
+          <h2 data-i18n="suggestions">Подборки</h2>
+          <button type="button" id="refresh-favorites" class="secondary" data-i18n="refreshFavorites">Обновить избранное</button>
+        </div>
+        <div id="weather-box" class="weather-box hidden"></div>
+        <div id="outfit-result" class="stack empty-state"></div>
+      </section>
+
+      <section class="card span-2">
+        <h2 data-i18n="favorites">Избранное</h2>
+        <div id="favorites-list" class="stack empty-state"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
